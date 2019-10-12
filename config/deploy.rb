@@ -92,6 +92,35 @@ task :scpconfig do
   end
 end
 
+task :stop_cron do
+  comment 'clear cron task'
+  command %[
+    if [ -e "#{fetch(:current_path)}" ]; then
+      cd #{fetch(:current_path)} && bundle exec whenever -c
+      crontab -l
+    else
+      echo 'No app current path!';
+    fi
+  ]
+end
+
+task :start_cron do
+  comment 'clear cron task'
+  command %[
+    if [ -e "#{fetch(:current_path)}" ]; then
+      cd #{fetch(:current_path)} && bundle exec whenever -i
+      crontab -l
+    else
+      echo 'No app current path!';
+    fi
+  ]
+end
+
+task :status_cron do
+  comment 'show cron tasks'
+  command %[crontab -l]
+end
+
 
 desc "Deploys the current version to the server."
 task :deploy do
@@ -113,12 +142,31 @@ task :deploy do
         command %{mkdir -p tmp/}
         command %{touch tmp/restart.txt}
       end
-      invoke :'puma:phased_restart'
+      #invoke :'puma:phased_restart'
+      invoke :'start_cron'
     end
   end
 
   # you can use `run :local` to run tasks on local machine before of after the deploy scripts
   # run(:local){ say 'done' }
+end
+
+task :deploy_first do
+  run :local do
+    command %[mina setup]
+    command %[mina scpconfig]
+    command %[mina deploy]
+    command %[mina puma:start]
+  end
+end
+
+task :deploy_maintain do
+  run :local do
+    command %[mina stop_cron]
+    command %[mina deploy]
+    command %[mina puma:restart]
+    #command %[mina start_cron]
+  end
 end
 
 # For help in making your deploy script, see the Mina documentation:

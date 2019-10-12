@@ -44,3 +44,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'jwt_sessions', '~> 2.3'
 gem 'mina', require: false
 gem 'mina-puma', require: false, github: 'untitledkingdom/mina-puma'
+
+gem "leaderboard"
+gem 'whenever', github: 'javan/whenever',  require: false
