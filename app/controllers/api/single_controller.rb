@@ -1,5 +1,6 @@
 class Api::SingleController < ApplicationController
 
+  #device_id name level score
   def update_user
     query = User.pluck(:device_id).index(params[:device_id])
     if query == nil
@@ -18,6 +19,7 @@ class Api::SingleController < ApplicationController
     end
   end
 
+  #device_id
   def get_user
     hash_info = {}
     hash_info[:player_info] = {}

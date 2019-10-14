@@ -9,6 +9,13 @@ Rails.application.routes.draw do
     get 'online/get_user'
     get 'online/toplist'
 
+    get 'challenge/send_request'
+    get 'challenge/receive_request'
+    get 'challenge/send_result'
+    get 'challenge/receive_result'
+    get 'challenge/win'
+    get 'challenge/get_user'
+    get 'challenge/toplist'
 
   end
 end

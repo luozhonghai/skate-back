@@ -63,5 +63,31 @@ class Leaderboards
   end
 
   # end online
+  #
+  #
 
+  #begin challenge
+  def self.insert_leaderboard_challenge(identifier, score)
+    highscore_lb_challenge = Leaderboard.new('lb_challenge')
+    member_20 = highscore_lb_challenge.member_at(20)
+    rank_me = highscore_lb_challenge.rank_for(identifier)
+    if rank_me == nil || member_20 == nil || member_20[:score] == nil || member_20[:score].to_i < score.to_i
+      highscore_lb_challenge.rank_member(identifier, score)
+      return true
+    end
+
+    return false
+    #else ignore
+  end
+
+  def self.get_rank_in_challenge(identifier)
+    highscore_lb_challenge = Leaderboard.new('lb_challenge')
+    return highscore_lb_challenge.rank_for(identifier)
+  end
+
+  def self.get_top20_in_challenge()
+    highscore_lb_challenge = Leaderboard.new('lb_challenge')
+    return highscore_lb_challenge.top(20)
+  end
+  #end challenge
 end
