@@ -90,4 +90,52 @@ class Leaderboards
     return highscore_lb_challenge.top(20)
   end
   #end challenge
+  #
+  #
+  #
+
+  def self.task_rank_leaderboards
+    member_data = []
+    users = User.all
+    users.each do |user|
+      member_data << user.device_id
+      member_data << user.score_single
+    end
+    #bulk rank datas
+    highscore_lb_single = Leaderboard.new('lb_single')
+    highscore_lb_single.rank_members(member_data)
+
+    member_data = []
+    users.each do |user|
+      member_data << user.device_id
+      member_data << user.score_0_online
+    end
+    highscore_lb_online = Leaderboard.new('lb_online_0')
+    highscore_lb_online.rank_members(member_data)
+
+    member_data = []
+    users.each do |user|
+      member_data << user.device_id
+      member_data << user.score_1_online
+    end
+    highscore_lb_online = Leaderboard.new('lb_online_1')
+    highscore_lb_online.rank_members(member_data)
+
+    member_data = []
+    users.each do |user|
+      member_data << user.device_id
+      member_data << user.score_2_online
+    end
+    highscore_lb_online = Leaderboard.new('lb_online_2')
+    highscore_lb_online.rank_members(member_data)
+
+    member_data = []
+    users.each do |user|
+      member_data << user.device_id
+      member_data << user.win_challenge
+    end
+    highscore_lb_challenge = Leaderboard.new('lb_challenge')
+    highscore_lb_challenge.rank_members(member_data)
+
+  end
 end

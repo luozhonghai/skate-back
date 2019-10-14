@@ -18,3 +18,9 @@
 # end
 
 # Learn more: http://github.com/javan/whenever
+#
+#
+
+every :hour do
+  runner "Leaderboards.task_rank_leaderboards"
+end
