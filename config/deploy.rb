@@ -143,7 +143,7 @@ task :deploy do
         command %{touch tmp/restart.txt}
       end
       #invoke :'puma:phased_restart'
-      invoke :'start_cron'
+      #invoke :'start_cron'
     end
   end
 
@@ -157,6 +157,7 @@ task :deploy_first do
     command %[mina scpconfig]
     command %[mina deploy]
     command %[mina puma:start]
+    command %[mina start_cron]
   end
 end
 
@@ -165,7 +166,7 @@ task :deploy_maintain do
     command %[mina stop_cron]
     command %[mina deploy]
     command %[mina puma:restart]
-    #command %[mina start_cron]
+    command %[mina start_cron]
   end
 end
 
