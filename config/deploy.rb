@@ -105,7 +105,7 @@ task :stop_cron do
 end
 
 task :start_cron do
-  comment 'clear cron task'
+  comment 'start cron task'
   command %[
     if [ -e "#{fetch(:current_path)}" ]; then
       cd #{fetch(:current_path)} && bundle exec whenever -i
