@@ -36,7 +36,7 @@ class Leaderboards
   def self.insert_leaderboard_online(identifier, score, mode)
     options = Leaderboard::DEFAULT_OPTIONS
     options[:reverse] = true
-    highscore_lb_online = Leaderboard.new('lb_online_' + mode, options)
+    highscore_lb_online = Leaderboard.new('lb_online_' + mode.to_s, options)
     member_20 = highscore_lb_online.member_at(20)
     rank_me = highscore_lb_online.rank_for(identifier)
     if rank_me == nil || member_20 == nil || member_20[:score] == nil || member_20[:score].to_f > score.to_f
@@ -51,14 +51,14 @@ class Leaderboards
   def self.get_rank_in_online(identifier, mode)
     options = Leaderboard::DEFAULT_OPTIONS
     options[:reverse] = true
-    highscore_lb_online = Leaderboard.new('lb_online_' + mode,options)
+    highscore_lb_online = Leaderboard.new('lb_online_' + mode.to_s,options)
     return highscore_lb_online.rank_for(identifier)
   end
 
   def self.get_top20_in_online(mode)
     options = Leaderboard::DEFAULT_OPTIONS
     options[:reverse] = true
-    highscore_lb_online = Leaderboard.new('lb_online_' + mode,options)
+    highscore_lb_online = Leaderboard.new('lb_online_' + mode.to_s,options)
     return highscore_lb_online.top(60)
   end
 

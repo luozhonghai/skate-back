@@ -17,7 +17,7 @@ class Api::OnlineController < ApplicationController
         return
       end
       @new_user.save!
-      b_20 = Leaderboards.insert_leaderboard_online(params[:device_id], params[:score], mode)
+      b_20 = Leaderboards.insert_leaderboard_online(params[:device_id], params[:score], mode.to_s)
 
       render json: { code: "1", info: "create user", refresh_top: b_20}
     else
@@ -25,18 +25,18 @@ class Api::OnlineController < ApplicationController
       @user.nickname = params[:name]
       mode = params[:map_id].to_i
       if mode == 0
-        @new_user.score_0_online = params[:score]
+        @user.score_0_online = params[:score]
       elsif mode == 1
-        @new_user.score_1_online = params[:score]
+        @user.score_1_online = params[:score]
       elsif mode == 2
-        @new_user.score_2_online = params[:score]
+        @user.score_2_online = params[:score]
       else
         render json: { error: "not valid map id" }
         return
       end
       @user.save!
 
-      b_20 = Leaderboards.insert_leaderboard_online(params[:device_id], params[:score], mode)
+      b_20 = Leaderboards.insert_leaderboard_online(params[:device_id], params[:score], mode.to_s)
 
       render json: { code: "1", info: "update user", refresh_top: b_20 }
     end
