@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_14_080858) do
+ActiveRecord::Schema.define(version: 2019_10_16_065942) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,13 +18,13 @@ ActiveRecord::Schema.define(version: 2019_10_14_080858) do
   create_table "users", force: :cascade do |t|
     t.string "device_id"
     t.string "nickname"
-    t.integer "level"
-    t.integer "score_single"
+    t.integer "level", default: 1
+    t.integer "score_single", default: 0
     t.decimal "score_0_online", precision: 9, scale: 3, default: "0.0"
     t.decimal "score_1_online", precision: 9, scale: 3, default: "0.0"
     t.decimal "score_2_online", precision: 9, scale: 3, default: "0.0"
-    t.integer "try_challenge"
-    t.integer "win_challenge"
+    t.integer "try_challenge", default: 0
+    t.integer "win_challenge", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.text "challenge_request"
