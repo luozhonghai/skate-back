@@ -59,7 +59,6 @@
     <orderEntry type="library" scope="PROVIDED" name="mimemagic (v0.3.3, rbenv: 2.6.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="mina (v1.2.3, rbenv: 2.6.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="mina-puma (v1.1.0@581a20, rbenv: 2.6.0) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="mina-unicorn (v2.0.0, rbenv: 2.6.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="mini_mime (v1.0.2, rbenv: 2.6.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="mini_portile2 (v2.4.0, rbenv: 2.6.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="minitest (v5.12.2, rbenv: 2.6.0) [gem]" level="application" />

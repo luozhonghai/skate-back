@@ -8,7 +8,7 @@ class Leaderboards
   #begin single
   def self.insert_leaderboard_single(identifier, score)
     highscore_lb_single = Leaderboard.new('lb_single')
-    member_60 = highscore_lb_single.member_at(60)
+    member_60 = highscore_lb_single.member_at(20)
     rank_me = highscore_lb_single.rank_for(identifier)
     if rank_me == nil || member_60 == nil || member_60[:score] == nil || member_60[:score].to_i < score.to_i
       highscore_lb_single.rank_member(identifier, score)
@@ -26,7 +26,7 @@ class Leaderboards
 
   def self.get_top60_in_single()
     highscore_lb_single = Leaderboard.new('lb_single')
-    return highscore_lb_single.top(60)
+    return highscore_lb_single.top(20)
   end
 
   # end single
@@ -60,7 +60,7 @@ class Leaderboards
     options = {}
     options[:reverse] = true
     highscore_lb_online = Leaderboard.new('lb_online_' + mode.to_s,options)
-    return highscore_lb_online.top(60)
+    return highscore_lb_online.top(20)
   end
 
   # end online
