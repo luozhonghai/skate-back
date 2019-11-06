@@ -47,3 +47,5 @@ gem 'mina-puma', require: false, github: 'untitledkingdom/mina-puma'
 
 gem "leaderboard"
 gem 'whenever', github: 'javan/whenever',  require: false
+
+gem 'webpacker', '~> 4.0'

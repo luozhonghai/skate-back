@@ -70,6 +70,7 @@
     <orderEntry type="library" scope="PROVIDED" name="puma (v3.12.1, rbenv: 2.6.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rack (v2.0.7, rbenv: 2.6.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rack-cors (v1.0.3, rbenv: 2.6.0) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rack-proxy (v0.6.5, rbenv: 2.6.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rack-test (v1.1.0, rbenv: 2.6.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rails (v6.0.0, rbenv: 2.6.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rails-dom-testing (v2.0.3, rbenv: 2.6.0) [gem]" level="application" />
@@ -87,6 +88,7 @@
     <orderEntry type="library" scope="PROVIDED" name="thor (v0.20.3, rbenv: 2.6.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="thread_safe (v0.3.6, rbenv: 2.6.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="tzinfo (v1.2.5, rbenv: 2.6.0) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="webpacker (v4.0.7, rbenv: 2.6.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="websocket-driver (v0.7.1, rbenv: 2.6.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="websocket-extensions (v0.1.4, rbenv: 2.6.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="whenever (v1.0.0@d1a985, rbenv: 2.6.0) [gem]" level="application" />

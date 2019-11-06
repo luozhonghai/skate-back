@@ -18,4 +18,7 @@ Rails.application.routes.draw do
     post 'challenge/toplist'
 
   end
+
+  root to: 'pages#home'
+
 end
