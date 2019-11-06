@@ -7,7 +7,8 @@ class Api::SingleController < ApplicationController
       @new_user = User.create(device_id: params[:device_id], nickname: params[:name], level: params[:level], score_single: params[:score])
       #binding.pry
       b_60 = Leaderboards.insert_leaderboard_single(params[:device_id], params[:score])
-      render json: { code: "1", info: "create user", refresh_top: b_60}
+      rank_self = Leaderboards.get_rank_in_single(params[:device_id])
+      render json: { code: "1", info: "create user", refresh_top: b_60, rank: rank_self}
     else
       @user = User.find_by(device_id: params[:device_id])
       @user.score_single = params[:score]
@@ -15,7 +16,8 @@ class Api::SingleController < ApplicationController
       @user.level = params[:level]
       @user.save!
       b_60 = Leaderboards.insert_leaderboard_single(params[:device_id], params[:score])
-      render json: { code: "1", info: "update user", refresh_top: b_60 }
+      rank_self = Leaderboards.get_rank_in_single(params[:device_id])
+      render json: { code: "1", info: "update user", refresh_top: b_60, rank: rank_self }
     end
   end
 
