@@ -51,3 +51,4 @@ gem 'whenever', github: 'javan/whenever',  require: false
 gem 'webpacker', '~> 4.0'
 gem 'devise', '~> 4.7', '>= 4.7.1'
 gem 'devise_masquerade', '~> 0.6.5'
+gem 'name_of_person', '~> 1.1', '>= 1.1.1'

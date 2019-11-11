@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html class="w-full sm:h-full">
+<head>
+  <%= render "shared/head" %>
+</head>
+
+<body class="w-full h-full <%= body_class(yield(:body_class)) %>">
+  <%= render "shared/flash" %>
+  <div class="dashboard-content">
+    <%= yield %>
+  </div>
+</body>
+
