@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+
+  authenticated :account do
+    root to: 'dashboard#show', as: :authenticated_root
+  end
+
+  devise_for :accounts, path: "/", path_names: { sign_up: "signup", sign_in: "login", sign_out: "logout", edit: "edit" }, controllers: { masquerades: "admin/masquerades" }
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   namespace :api, :path => ""  do
     post 'single/update_user'

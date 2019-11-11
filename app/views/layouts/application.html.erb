@@ -5,8 +5,10 @@
 </head>
 
 <body class="<%= body_class(yield(:body_class)) %>">
-
-<%= yield %>
+  <\%= account_masquerade(current_account) if account_masquerade? %>
+  <%= render "shared/flash" %>>
+  <%= yield %>
+  <%= render "shared/footer" %>>
 </body>
 </html>
 

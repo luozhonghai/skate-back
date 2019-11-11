@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <%= render "shared/head" %>
+</head>
+
+<body class="<%= body_class(yield(:body_class)) %>">
+<%= render "shared/flash" %>
+<div class="">
+  <%= link_to Rails.configuration.application_name, root_url, class: "block my-8 text-2xl text-center font-bold text-black hover:text-grey-dark no-underline" %>
+
+  <%= yield %>
+</div>
+</body>
+</html>

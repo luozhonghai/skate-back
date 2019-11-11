@@ -26,3 +26,6 @@ end
 
 #setup_stimulus
 "bundle exec rails webpacker:install:stimulus"
+
+#setup_authentication_model
+"rails g devise:install"
