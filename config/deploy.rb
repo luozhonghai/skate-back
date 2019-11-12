@@ -134,7 +134,7 @@ task :deploy do
     invoke :'bundle:install'
     invoke :'rails:db_migrate'
     command %{#{fetch(:rails)} db:seed}
-    invoke :'rails:assets_precompile'
+    #invoke :'rails:assets_precompile'
     invoke :'deploy:cleanup'
 
     on :launch do
@@ -169,6 +169,14 @@ task :deploy_maintain do
     command %[mina start_cron]
   end
 end
+
+task :cp_assets do
+  run :local do
+    command %[mina rake[assets:precompile]]
+    command %[mina puma:start]
+  end
+end
+
 
 # For help in making your deploy script, see the Mina documentation:
 #
