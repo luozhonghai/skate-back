@@ -1,4 +1,4 @@
-class Api::OnlineController < ApplicationController
+class Api::OnlineController < Api::BaseController
   #device_id, name, map_id, score
   def update_user
     query = User.pluck(:device_id).index(params[:device_id])

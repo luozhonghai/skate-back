@@ -1,4 +1,4 @@
-class Api::SingleController < ApplicationController
+class Api::SingleController < Api::BaseController
 
   #device_id name level score
   def update_user

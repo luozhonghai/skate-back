@@ -1,4 +1,4 @@
-class Api::ChallengeController < ApplicationController
+class Api::ChallengeController < Api::BaseController
 
   #device_id, target_device_id, score
   def send_request
