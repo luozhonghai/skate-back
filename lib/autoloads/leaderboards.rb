@@ -106,12 +106,14 @@ class Leaderboards
     highscore_lb_single = Leaderboard.new('lb_single')
     highscore_lb_single.rank_members(member_data)
 
+    options = {}
+    options[:reverse] = true
     member_data = []
     users.each do |user|
       member_data << user.device_id
       member_data << user.score_0_online
     end
-    highscore_lb_online = Leaderboard.new('lb_online_0')
+    highscore_lb_online = Leaderboard.new('lb_online_0', options)
     highscore_lb_online.rank_members(member_data)
 
     member_data = []
@@ -119,7 +121,7 @@ class Leaderboards
       member_data << user.device_id
       member_data << user.score_1_online
     end
-    highscore_lb_online = Leaderboard.new('lb_online_1')
+    highscore_lb_online = Leaderboard.new('lb_online_1', options)
     highscore_lb_online.rank_members(member_data)
 
     member_data = []
@@ -127,7 +129,7 @@ class Leaderboards
       member_data << user.device_id
       member_data << user.score_2_online
     end
-    highscore_lb_online = Leaderboard.new('lb_online_2')
+    highscore_lb_online = Leaderboard.new('lb_online_2', options)
     highscore_lb_online.rank_members(member_data)
 
     member_data = []
