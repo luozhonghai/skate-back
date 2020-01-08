@@ -82,7 +82,7 @@ class Api::ChallengeController < Api::BaseController
       hash_info[:player_info] = {
           name: @user.nickname,
           try_challenge: @user.try_challenge,
-          win_challenge: @user.score_single,
+          win_challenge: @user.win_challenge,
           rank_challenge: Leaderboards.get_rank_in_challenge(params[:device_id]),
       }
     end
