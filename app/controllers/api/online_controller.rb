@@ -51,14 +51,18 @@ class Api::OnlineController < Api::BaseController
     device_id = params[:device_id]
     @user = User.find_by(device_id: params[:device_id])
     if @user != nil
+      rank_0 = Leaderboards.get_rank_in_online(params[:device_id], 0)
+      rank_1 = Leaderboards.get_rank_in_online(params[:device_id], 1)
+      rank_2 = Leaderboards.get_rank_in_online(params[:device_id], 2)
+
       hash_info[:player_info] = {
           name: @user.nickname,
           score_0_online: @user.score_0_online,
-          rank_0_online: Leaderboards.get_rank_in_online(params[:device_id], 0),
+          rank_0_online: rank_0 == nil ? -1 : rank_0,
           score_1_online: @user.score_1_online,
-          rank_1_online: Leaderboards.get_rank_in_online(params[:device_id], 1),
+          rank_1_online: rank_1 == nil ? -1 : rank_1,
           score_2_online: @user.score_2_online,
-          rank_2_online: Leaderboards.get_rank_in_online(params[:device_id], 2),
+          rank_2_online: rank_2 == nil ? -1 : rank_2,
       }
     end
     #if device_id[0..7] == "glasses3"

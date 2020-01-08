@@ -79,11 +79,12 @@ class Api::ChallengeController < Api::BaseController
     device_id = params[:device_id]
     @user = User.find_by(device_id: params[:device_id])
     if @user != nil
+      rank = Leaderboards.get_rank_in_challenge(params[:device_id])
       hash_info[:player_info] = {
           name: @user.nickname,
           try_challenge: @user.try_challenge,
           win_challenge: @user.win_challenge,
-          rank_challenge: Leaderboards.get_rank_in_challenge(params[:device_id]),
+          rank_challenge: rank == nil ? -1 : rank
       }
     end
     #if device_id[0..7] == "glasses3"
