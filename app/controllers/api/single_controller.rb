@@ -1,5 +1,15 @@
 class Api::SingleController < Api::BaseController
 
+
+  def is_user_unique
+    @user = User.find_by(nickname: params[:name])
+    if @user == nil
+      render json: { unique: "1"}
+    else
+      render json: { unique: "0"}
+    end
+  end
+
   #device_id name level score
   def update_user
     query = User.pluck(:device_id).index(params[:device_id])
