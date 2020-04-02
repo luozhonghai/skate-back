@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  namespace :api, :path => "" do
+    post 'manage/auth'
+    post 'manage/shot'
+  end
   authenticated :account do
     root to: 'dashboard#show', as: :authenticated_root
   end
