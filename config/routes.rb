@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     post 'single/get_user'
     post 'single/toplist'
     post 'single/is_user_unique'
+    post 'single/get_score_rank'
 
     post 'online/update_user'
     post 'online/get_user'

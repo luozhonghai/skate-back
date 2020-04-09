@@ -10,6 +10,11 @@ class Api::SingleController < Api::BaseController
     end
   end
 
+  def get_score_rank
+    rank_score = Leaderboards.get_score_rank_in_single(params[:score]) + 1
+    render json: { rank: rank_score}
+  end
+
   #device_id name level score
   def update_user
     query = User.pluck(:device_id).index(params[:device_id])

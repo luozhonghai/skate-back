@@ -29,6 +29,12 @@ class Leaderboards
     return highscore_lb_single.top(20)
   end
 
+  def self.get_score_rank_in_single(score)
+    highscore_lb_single = Leaderboard.new('lb_single')
+    return highscore_lb_single.total_members_in_score_range(score, 10000000000)
+  end
+
+
   # end single
   #
 
