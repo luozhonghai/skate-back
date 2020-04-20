@@ -100,6 +100,27 @@ class Leaderboards
   #
   #
   #
+  #
+
+  def self.delete_leaderboards
+    highscore_lb_single = Leaderboard.new('lb_single')
+    highscore_lb_single.delete_leaderboard
+
+    highscore_lb_challenge = Leaderboard.new('lb_challenge')
+    highscore_lb_challenge.delete_leaderboard
+
+    options = {}
+    options[:reverse] = true
+    highscore_lb_online = Leaderboard.new('lb_online_0', options)
+    highscore_lb_online.delete_leaderboard
+
+    highscore_lb_online = Leaderboard.new('lb_online_1', options)
+    highscore_lb_online.delete_leaderboard
+
+    highscore_lb_online = Leaderboard.new('lb_online_2', options)
+    highscore_lb_online.delete_leaderboard
+
+  end
 
   def self.task_rank_leaderboards
     member_data = []
