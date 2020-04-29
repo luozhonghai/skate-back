@@ -126,6 +126,9 @@ class Leaderboards
     member_data = []
     users = User.all
     users.each do |user|
+      if user.score_single <= 0
+        next
+      end
       member_data << user.device_id
       member_data << user.score_single
     end
@@ -137,6 +140,9 @@ class Leaderboards
     options[:reverse] = true
     member_data = []
     users.each do |user|
+      if user.score_0_online <= 0
+        next
+      end
       member_data << user.device_id
       member_data << user.score_0_online
     end
@@ -145,6 +151,9 @@ class Leaderboards
 
     member_data = []
     users.each do |user|
+      if user.score_1_online <= 0
+        next
+      end
       member_data << user.device_id
       member_data << user.score_1_online
     end
@@ -153,6 +162,9 @@ class Leaderboards
 
     member_data = []
     users.each do |user|
+      if user.score_2_online <= 0
+        next
+      end
       member_data << user.device_id
       member_data << user.score_2_online
     end
@@ -161,6 +173,9 @@ class Leaderboards
 
     member_data = []
     users.each do |user|
+      if user.win_challenge <= 0
+        next
+      end
       member_data << user.device_id
       member_data << user.win_challenge
     end
