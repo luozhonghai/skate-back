@@ -1,0 +1,77 @@
+<%= form_with(model: user, local: true) do |form| %>
+  <% if user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(user.errors.count, "error") %> prohibited this userr from being saved:</h2>
+
+      <ul>
+        <% user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :device_id %>
+    <%= form.text_field :device_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :nickname %>
+    <%= form.text_field :nickname %>
+  </div>
+
+  <div class="field">
+    <%= form.label :level %>
+    <%= form.number_field :level %>
+  </div>
+
+  <div class="field">
+    <%= form.label :score_single %>
+    <%= form.number_field :score_single %>
+  </div>
+
+  <div class="field">
+    <%= form.label :score_single %>
+    <%= form.number_field :score_single %>
+  </div>
+
+  <div class="field">
+    <%= form.label :score_0_online %>
+    <%= form.text_field :score_0_online %>
+  </div>
+
+  <div class="field">
+    <%= form.label :score_1_online %>
+    <%= form.text_field :score_1_online %>
+  </div>
+
+  <div class="field">
+    <%= form.label :score_2_online %>
+    <%= form.text_field :score_2_online %>
+  </div>
+
+  <div class="field">
+    <%= form.label :try_challenge %>
+    <%= form.number_field :try_challenge %>
+  </div>
+
+  <div class="field">
+    <%= form.label :win_challenge %>
+    <%= form.number_field :win_challenge %>
+  </div>
+
+  <div class="field">
+    <%= form.label :challenge_request %>
+    <%= form.text_area :challenge_request %>
+  </div>
+
+  <div class="field">
+    <%= form.label :challenge_result %>
+    <%= form.text_area :challenge_result %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

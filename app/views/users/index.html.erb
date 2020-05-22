@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Users</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Device</th>
+      <th>Nickname</th>
+      <th>Level</th>
+      <th>Score single</th>
+      <th>Score single</th>
+      <th>Score 0 online</th>
+      <th>Score 1 online</th>
+      <th>Score 2 online</th>
+      <th>Try challenge</th>
+      <th>Win challenge</th>
+      <th>Challenge request</th>
+      <th>Challenge result</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.device_id %></td>
+        <td><%= user.nickname %></td>
+        <td><%= user.level %></td>
+        <td><%= user.score_single %></td>
+        <td><%= user.score_single %></td>
+        <td><%= user.score_0_online %></td>
+        <td><%= user.score_1_online %></td>
+        <td><%= user.score_2_online %></td>
+        <td><%= user.try_challenge %></td>
+        <td><%= user.win_challenge %></td>
+        <td><%= user.challenge_request %></td>
+        <td><%= user.challenge_result %></td>
+        <td><%= link_to 'Show', user %></td>
+        <td><%= link_to 'Edit', edit_user_path(user) %></td>
+        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New User', new_user_path %>

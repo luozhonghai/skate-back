@@ -1,0 +1,5 @@
+h1 搜索用户
+
+= simple_form_for :search_user, url: dashboard_search_result_path do |f|
+  = f.input :device_id, label: "设备id"
+  = f.button :submit, "发送"

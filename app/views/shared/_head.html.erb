@@ -7,5 +7,6 @@
 <%= javascript_pack_tag "application", "data-turbolinks-track": "reload" %>
 <%= stylesheet_pack_tag "application", "data-turbolinks-track": "reload" %>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<%= link_to 'Logout', destroy_account_session_path, method: :delete, class: 'dropdown-item' %>
 
 

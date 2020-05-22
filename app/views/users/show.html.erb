@@ -1,0 +1,64 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Device:</strong>
+  <%= @user.device_id %>
+</p>
+
+<p>
+  <strong>Nickname:</strong>
+  <%= @user.nickname %>
+</p>
+
+<p>
+  <strong>Level:</strong>
+  <%= @user.level %>
+</p>
+
+<p>
+  <strong>Score single:</strong>
+  <%= @user.score_single %>
+</p>
+
+<p>
+  <strong>Score single:</strong>
+  <%= @user.score_single %>
+</p>
+
+<p>
+  <strong>Score 0 online:</strong>
+  <%= @user.score_0_online %>
+</p>
+
+<p>
+  <strong>Score 1 online:</strong>
+  <%= @user.score_1_online %>
+</p>
+
+<p>
+  <strong>Score 2 online:</strong>
+  <%= @user.score_2_online %>
+</p>
+
+<p>
+  <strong>Try challenge:</strong>
+  <%= @user.try_challenge %>
+</p>
+
+<p>
+  <strong>Win challenge:</strong>
+  <%= @user.win_challenge %>
+</p>
+
+<p>
+  <strong>Challenge request:</strong>
+  <%= @user.challenge_request %>
+</p>
+
+<p>
+  <strong>Challenge result:</strong>
+  <%= @user.challenge_result %>
+</p>
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>

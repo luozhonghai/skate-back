@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :users
   namespace :api, :path => "" do
     post 'manage/auth'
     post 'manage/shot'
@@ -32,6 +33,8 @@ Rails.application.routes.draw do
 
   end
 
-  root to: 'pages#home'
+  root to: 'dashboard#show'
+  get 'dashboard/search'
+  post 'dashboard/search_result'
 
 end

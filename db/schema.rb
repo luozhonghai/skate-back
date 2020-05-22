@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_11_094204) do
+ActiveRecord::Schema.define(version: 2020_04_29_050159) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,9 +40,9 @@ ActiveRecord::Schema.define(version: 2019_11_11_094204) do
     t.string "nickname"
     t.integer "level", default: 1
     t.integer "score_single", default: 0
-    t.decimal "score_0_online", precision: 9, scale: 3, default: "0.0"
-    t.decimal "score_1_online", precision: 9, scale: 3, default: "0.0"
-    t.decimal "score_2_online", precision: 9, scale: 3, default: "0.0"
+    t.decimal "score_0_online", precision: 9, scale: 3, default: "-1.0"
+    t.decimal "score_1_online", precision: 9, scale: 3, default: "-1.0"
+    t.decimal "score_2_online", precision: 9, scale: 3, default: "-1.0"
     t.integer "try_challenge", default: 0
     t.integer "win_challenge", default: 0
     t.datetime "created_at", precision: 6, null: false

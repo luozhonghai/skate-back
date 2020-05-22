@@ -1,0 +1,29 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  device_id: MyString
+  nickname: MyString
+  level: 1
+  score_single: 1
+  score_single: 1
+  score_0_online: 9.99
+  score_1_online: 9.99
+  score_2_online: 9.99
+  try_challenge: 1
+  win_challenge: 1
+  challenge_request: MyText
+  challenge_result: MyText
+
+two:
+  device_id: MyString
+  nickname: MyString
+  level: 1
+  score_single: 1
+  score_single: 1
+  score_0_online: 9.99
+  score_1_online: 9.99
+  score_2_online: 9.99
+  try_challenge: 1
+  win_challenge: 1
+  challenge_request: MyText
+  challenge_result: MyText
