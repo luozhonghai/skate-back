@@ -133,8 +133,9 @@ task :deploy do
     invoke :'deploy:link_shared_paths'
     invoke :'bundle:install'
     invoke :'rails:db_migrate'
-    command %{#{fetch(:rails)} db:seed}
-    #invoke :'rails:assets_precompile'
+    invoke :clear_bootsnap
+    #command %{#{fetch(:rails)} db:seed}
+    invoke :'rails:assets_precompile'
     invoke :'deploy:cleanup'
 
     on :launch do

@@ -47,3 +47,5 @@
 <br>
 
 <%= link_to 'New User', new_user_path %>
+
+<%= will_paginate @users, renderer: BootstrapPagination::Rails %>
