@@ -126,6 +126,7 @@ class Leaderboards
     member_data = []
     users = User.all
     users.each do |user|
+      user.score_single ||= 0
       if user.score_single <= 0
         next
       end
