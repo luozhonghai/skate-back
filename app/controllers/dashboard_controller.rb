@@ -10,6 +10,11 @@ class DashboardController < ManagerController
 
   end
 
+  def rank
+    Leaderboards.task_rank_leaderboards
+    redirect_to root_path
+  end
+
   def search_result
     search_device_id = params[:search_user][:device_id]
     user = User.find_by(device_id: search_device_id)

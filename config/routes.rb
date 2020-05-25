@@ -35,6 +35,7 @@ Rails.application.routes.draw do
 
   root to: 'dashboard#show'
   get 'dashboard/search'
+  get 'dashboard/rank'
   post 'dashboard/search_result'
 
 end
