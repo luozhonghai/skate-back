@@ -75,6 +75,14 @@ task :setup do
   command %[touch "#{fetch(:shared_path)}/tmp/sockets/puma.state"]
 end
 
+task :setup_public do
+  command %[mkdir -p "#{fetch(:shared_path)}/public/packs"]
+  command %[chmod g+rx,u+rwx "#{fetch(:shared_path)}/public/packs"]
+
+  command %[mkdir -p "#{fetch(:shared_path)}/node_modules"]
+  command %[chmod g+rx,u+rwx "#{fetch(:shared_path)}/node_modules"]
+end
+
 
 desc "scp local config files to remote shared config folders."
 task :scpconfig do

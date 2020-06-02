@@ -11,6 +11,7 @@ class DashboardController < ManagerController
   end
 
   def rank
+    Leaderboards.delete_leaderboards
     Leaderboards.task_rank_leaderboards
     redirect_to root_path
   end
