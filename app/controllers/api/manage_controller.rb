@@ -10,6 +10,12 @@ class Api::ManageController < Api::BaseController
     render json: { code: "0"}
   end
 
+
+  def server_url
+    platform_id = params[:platform_id]
+    render json: {url: "global.fancyskiing.com"}
+  end
+
   def shot
     platform_id = params[:platform_id]
     device_id = params[:device_id]
