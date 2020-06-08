@@ -96,7 +96,7 @@ class Api::SingleMapController < Api::BaseController
       hash_info[key].each do |info|
         user = User.find_by(device_id: info[:member])
         info[:name] = user != nil ?  user.nickname : ""
-        info[:score] = user != nil ?  [user.level_0, user.level_1, user.level_2][i] : ""
+        info[:level] = user != nil ?  [user.level_0, user.level_1, user.level_2][i] : ""
         #info[:score] = user != nil ?  user.score_single : ""
       end
     end
