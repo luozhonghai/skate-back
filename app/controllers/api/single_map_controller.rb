@@ -42,14 +42,14 @@ class Api::SingleMapController < Api::BaseController
       @user = User.find_by(device_id: params[:device_id])
       mode = params[:map_id].to_i
       if mode == 0
-        @new_user.level_0 = params[:level]
-        @new_user.score_single_0 = params[:score]
+        @user.level_0 = params[:level]
+        @user.score_single_0 = params[:score]
       elsif mode == 1
-        @new_user.level_1 = params[:level]
-        @new_user.score_single_1 = params[:score]
+        @user.level_1 = params[:level]
+        @user.score_single_1 = params[:score]
       elsif mode == 2
-        @new_user.level_2 = params[:level]
-        @new_user.score_single_2 = params[:score]
+        @user.level_2 = params[:level]
+        @user.score_single_2 = params[:score]
       else
         render json: { error: "not valid map id" }
         return
@@ -57,10 +57,9 @@ class Api::SingleMapController < Api::BaseController
       @user.nickname = params[:name]
       @user.save!
       b_60 = Leaderboards.insert_leaderboard_single_map(params[:device_id], params[:score], mode.to_s)
-      rank_self = Leaderboards.get_rank_in_single_map(params[:device_id], mode.tp_s)
+      rank_self = Leaderboards.get_rank_in_single_map(params[:device_id], mode.to_s)
       render json: { code: "1", info: "update user", refresh_top: b_60, rank: rank_self }
     end
-  end
   end
 
   def get_user
@@ -81,6 +80,10 @@ class Api::SingleMapController < Api::BaseController
           score_single_2: @user.score_single_2,
           rank_single_2: Leaderboards.get_rank_in_single_map(params[:device_id], 2),
       }
+    end
+
+    render json: hash_info
+
   end
 
   def toplist
@@ -100,4 +103,5 @@ class Api::SingleMapController < Api::BaseController
 
     render json: hash_info
   end
+
 end

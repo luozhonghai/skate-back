@@ -19,7 +19,7 @@ class Leaderboards
     #else ignore
   end
 
-  def insert_leaderboard_single_map(identifier, score, mode)
+  def self.insert_leaderboard_single_map(identifier, score, mode)
     highscore_lb_single = Leaderboard.new('lb_single_' + mode.to_s)
     member_60 = highscore_lb_single.member_at(20)
     rank_me = highscore_lb_single.rank_for(identifier)
