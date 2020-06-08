@@ -32,6 +32,12 @@ Rails.application.routes.draw do
     post 'challenge/get_user'
     post 'challenge/toplist'
 
+    post 'single_map/is_user_unique'
+    post 'single_map/get_score_rank'
+    post 'single_map/update_user'
+    post 'single_map/get_user'
+    post 'single_map/toplist'
+
   end
 
   root to: 'dashboard#show'

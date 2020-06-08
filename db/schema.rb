@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_29_050159) do
+ActiveRecord::Schema.define(version: 2020_06_08_044243) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,12 @@ ActiveRecord::Schema.define(version: 2020_04_29_050159) do
     t.datetime "updated_at", precision: 6, null: false
     t.text "challenge_request"
     t.text "challenge_result"
+    t.integer "score_single_0", default: 0
+    t.integer "score_single_1", default: 0
+    t.integer "score_single_2", default: 0
+    t.integer "level_0", default: 1
+    t.integer "level_1", default: 1
+    t.integer "level_2", default: 1
   end
 
 end

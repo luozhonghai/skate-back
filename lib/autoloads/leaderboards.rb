@@ -19,8 +19,25 @@ class Leaderboards
     #else ignore
   end
 
+  def insert_leaderboard_single_map(identifier, score, mode)
+    highscore_lb_single = Leaderboard.new('lb_single_' + mode.to_s)
+    member_60 = highscore_lb_single.member_at(20)
+    rank_me = highscore_lb_single.rank_for(identifier)
+    if rank_me == nil || member_60 == nil || member_60[:score] == nil || member_60[:score].to_i < score.to_i
+      highscore_lb_single.rank_member(identifier, score)
+      return true
+    end
+
+    false
+  end
+
   def self.get_rank_in_single(identifier)
     highscore_lb_single = Leaderboard.new('lb_single')
+    return highscore_lb_single.rank_for(identifier)
+  end
+
+  def self.get_rank_in_single_map(identifier, mode)
+    highscore_lb_single = Leaderboard.new('lb_single_' + mode.to_s)
     return highscore_lb_single.rank_for(identifier)
   end
 
@@ -29,8 +46,18 @@ class Leaderboards
     return highscore_lb_single.top(20)
   end
 
+  def self.get_top60_in_single_map(mode)
+    highscore_lb_single = Leaderboard.new('lb_single_' + mode.to_s)
+    return highscore_lb_single.top(20)
+  end
+
   def self.get_score_rank_in_single(score)
     highscore_lb_single = Leaderboard.new('lb_single')
+    return highscore_lb_single.total_members_in_score_range(score, 10000000000)
+  end
+
+  def self.get_score_rank_in_single_map(score, mode)
+    highscore_lb_single = Leaderboard.new('lb_single_' + mode.to_s)
     return highscore_lb_single.total_members_in_score_range(score, 10000000000)
   end
 
