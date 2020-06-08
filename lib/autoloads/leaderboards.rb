@@ -133,6 +133,15 @@ class Leaderboards
     highscore_lb_single = Leaderboard.new('lb_single')
     highscore_lb_single.delete_leaderboard
 
+    highscore_lb_single = Leaderboard.new('lb_single_0')
+    highscore_lb_single.delete_leaderboard
+
+    highscore_lb_single = Leaderboard.new('lb_single_1')
+    highscore_lb_single.delete_leaderboard
+
+    highscore_lb_single = Leaderboard.new('lb_single_2')
+    highscore_lb_single.delete_leaderboard
+
     highscore_lb_challenge = Leaderboard.new('lb_challenge')
     highscore_lb_challenge.delete_leaderboard
 
@@ -210,5 +219,37 @@ class Leaderboards
     highscore_lb_challenge = Leaderboard.new('lb_challenge')
     highscore_lb_challenge.rank_members(member_data)
 
+    member_data = []
+    users.each do |user|
+      if user.score_single_0 <= 0
+        next
+      end
+      member_data << user.device_id
+      member_data << user.score_single_0
+    end
+    highscore_lb_online = Leaderboard.new('lb_single_0')
+    highscore_lb_online.rank_members(member_data)
+
+    member_data = []
+    users.each do |user|
+      if user.score_single_1 <= 0
+        next
+      end
+      member_data << user.device_id
+      member_data << user.score_single_1
+    end
+    highscore_lb_online = Leaderboard.new('lb_single_1')
+    highscore_lb_online.rank_members(member_data)
+
+    member_data = []
+    users.each do |user|
+      if user.score_single_2 <= 0
+        next
+      end
+      member_data << user.device_id
+      member_data << user.score_single_2
+    end
+    highscore_lb_online = Leaderboard.new('lb_single_2')
+    highscore_lb_online.rank_members(member_data)
   end
 end
