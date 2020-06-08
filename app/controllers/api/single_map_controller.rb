@@ -1,4 +1,4 @@
-class Api::SingleMapController < ApplicationController
+class Api::SingleMapController < Api::BaseController
   def is_user_unique
     @user = User.find_by(nickname: params[:name])
     if @user == nil
