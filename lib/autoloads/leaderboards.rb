@@ -38,7 +38,7 @@ class Leaderboards
 
   def self.get_rank_in_single_map(identifier, mode)
     highscore_lb_single = Leaderboard.new('lb_single_' + mode.to_s)
-    return highscore_lb_single.rank_for(identifier)
+    return highscore_lb_single.rank_for(identifier) || -1
   end
 
   def self.get_top60_in_single()
