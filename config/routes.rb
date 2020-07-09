@@ -5,6 +5,9 @@ Rails.application.routes.draw do
     post 'manage/auth'
     post 'manage/shot'
     post 'manage/server_url'
+    get 'manage/notice_cn'
+    get 'manage/notice_en'
+
   end
   authenticated :account do
     root to: 'dashboard#show', as: :authenticated_root

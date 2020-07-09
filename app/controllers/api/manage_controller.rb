@@ -6,10 +6,17 @@ class Api::ManageController < Api::BaseController
       render json: { code: "-1" }
       return
     end
-    #validate
+    #validategem
     render json: { code: "0"}
   end
 
+  def notice_cn
+    render json: { notice: Settings.notice_cn}
+  end
+
+  def notice_en
+    render json: { notice: Settings.notice_en}
+  end
 
   def server_url
     platform_id = params[:platform_id]

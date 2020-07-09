@@ -56,4 +56,5 @@ gem 'will_paginate', '~> 3.1.0'
 gem 'will_paginate-bootstrap'
 gem 'simple_form'
 gem 'slim'
+gem 'config'
 
