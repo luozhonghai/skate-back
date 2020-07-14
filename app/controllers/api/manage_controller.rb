@@ -10,12 +10,19 @@ class Api::ManageController < Api::BaseController
     render json: { code: "0"}
   end
 
+
   def notice_cn
-    render json: { notice: Settings.notice_cn}
+    platform_id = params[:platform_id]
+    device_id = params[:device_id]
+    render json: { notice: "" }
+    #render json: { notice: Settings.notice_cn}
   end
 
   def notice_en
-    render json: { notice: Settings.notice_en}
+    platform_id = params[:platform_id]
+    device_id = params[:device_id]
+    render json: { notice: "" }
+    #render json: { notice: Settings.notice_en}
   end
 
   def server_url
