@@ -54,6 +54,6 @@ class UsersController < ManagerController
 
     # Only allow a trusted parameter "white list" through.
     def user_params
-      params.require(:user).permit(:device_id, :nickname, :level, :score_single, :score_single, :score_0_online, :score_1_online, :score_2_online, :try_challenge, :win_challenge, :challenge_request, :challenge_result)
+      params.require(:user).permit(:device_id, :nickname, :level, :score_single, :score_single, :score_0_online, :score_1_online, :score_2_online, :try_challenge, :win_challenge, :challenge_request, :challenge_result, :score_single_0, :score_single_1, :score_single_2)
     end
 end
