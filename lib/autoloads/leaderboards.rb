@@ -7,7 +7,7 @@ class Leaderboards
 
   #begin single
   def self.insert_leaderboard_single(identifier, score)
-    highscore_lb_single = Leaderboard.new('lb_single')
+    highscore_lb_single = Leaderboard.new('lb_single_skate')
     member_60 = highscore_lb_single.member_at(20)
     rank_me = highscore_lb_single.rank_for(identifier)
     if rank_me == nil || member_60 == nil || member_60[:score] == nil || member_60[:score].to_i < score.to_i
@@ -20,7 +20,7 @@ class Leaderboards
   end
 
   def self.insert_leaderboard_single_map(identifier, score, mode)
-    highscore_lb_single = Leaderboard.new('lb_single_' + mode.to_s)
+    highscore_lb_single = Leaderboard.new('lb_single_skate_' + mode.to_s)
     member_60 = highscore_lb_single.member_at(20)
     rank_me = highscore_lb_single.rank_for(identifier)
     if rank_me == nil || member_60 == nil || member_60[:score] == nil || member_60[:score].to_i < score.to_i
@@ -32,32 +32,32 @@ class Leaderboards
   end
 
   def self.get_rank_in_single(identifier)
-    highscore_lb_single = Leaderboard.new('lb_single')
+    highscore_lb_single = Leaderboard.new('lb_single_skate')
     return highscore_lb_single.rank_for(identifier)
   end
 
   def self.get_rank_in_single_map(identifier, mode)
-    highscore_lb_single = Leaderboard.new('lb_single_' + mode.to_s)
+    highscore_lb_single = Leaderboard.new('lb_single_skate_' + mode.to_s)
     return highscore_lb_single.rank_for(identifier) || -1
   end
 
   def self.get_top60_in_single()
-    highscore_lb_single = Leaderboard.new('lb_single')
+    highscore_lb_single = Leaderboard.new('lb_single_skate')
     return highscore_lb_single.top(20)
   end
 
   def self.get_top60_in_single_map(mode)
-    highscore_lb_single = Leaderboard.new('lb_single_' + mode.to_s)
+    highscore_lb_single = Leaderboard.new('lb_single_skate_' + mode.to_s)
     return highscore_lb_single.top(20)
   end
 
   def self.get_score_rank_in_single(score)
-    highscore_lb_single = Leaderboard.new('lb_single')
+    highscore_lb_single = Leaderboard.new('lb_single_skate')
     return highscore_lb_single.total_members_in_score_range(score, 10000000000)
   end
 
   def self.get_score_rank_in_single_map(score, mode)
-    highscore_lb_single = Leaderboard.new('lb_single_' + mode.to_s)
+    highscore_lb_single = Leaderboard.new('lb_single_skate_' + mode.to_s)
     return highscore_lb_single.total_members_in_score_range(score, 10000000000)
   end
 
@@ -70,7 +70,7 @@ class Leaderboards
     #options = Leaderboard::DEFAULT_OPTIONS.clone
     options = {}
     options[:reverse] = true
-    highscore_lb_online = Leaderboard.new('lb_online_' + mode.to_s, options)
+    highscore_lb_online = Leaderboard.new('lb_online_skate_' + mode.to_s, options)
     member_20 = highscore_lb_online.member_at(20)
     rank_me = highscore_lb_online.rank_for(identifier)
     if rank_me == nil || member_20 == nil || member_20[:score] == nil || member_20[:score].to_f > score.to_f
@@ -85,14 +85,14 @@ class Leaderboards
   def self.get_rank_in_online(identifier, mode)
     options = {}
     options[:reverse] = true
-    highscore_lb_online = Leaderboard.new('lb_online_' + mode.to_s,options)
+    highscore_lb_online = Leaderboard.new('lb_online_skate_' + mode.to_s,options)
     return highscore_lb_online.rank_for(identifier)
   end
 
   def self.get_top20_in_online(mode)
     options = {}
     options[:reverse] = true
-    highscore_lb_online = Leaderboard.new('lb_online_' + mode.to_s,options)
+    highscore_lb_online = Leaderboard.new('lb_online_skate_' + mode.to_s,options)
     return highscore_lb_online.top(20)
   end
 
@@ -102,7 +102,7 @@ class Leaderboards
 
   #begin challenge
   def self.insert_leaderboard_challenge(identifier, score)
-    highscore_lb_challenge = Leaderboard.new('lb_challenge')
+    highscore_lb_challenge = Leaderboard.new('lb_challenge_skate')
     member_20 = highscore_lb_challenge.member_at(20)
     rank_me = highscore_lb_challenge.rank_for(identifier)
     if rank_me == nil || member_20 == nil || member_20[:score] == nil || member_20[:score].to_i < score.to_i
@@ -115,12 +115,12 @@ class Leaderboards
   end
 
   def self.get_rank_in_challenge(identifier)
-    highscore_lb_challenge = Leaderboard.new('lb_challenge')
+    highscore_lb_challenge = Leaderboard.new('lb_challenge_skate')
     return highscore_lb_challenge.rank_for(identifier)
   end
 
   def self.get_top20_in_challenge()
-    highscore_lb_challenge = Leaderboard.new('lb_challenge')
+    highscore_lb_challenge = Leaderboard.new('lb_challenge_skate')
     return highscore_lb_challenge.top(20)
   end
   #end challenge
@@ -130,30 +130,30 @@ class Leaderboards
   #
 
   def self.delete_leaderboards
-    highscore_lb_single = Leaderboard.new('lb_single')
+    highscore_lb_single = Leaderboard.new('lb_single_skate')
     highscore_lb_single.delete_leaderboard
 
-    highscore_lb_single = Leaderboard.new('lb_single_0')
+    highscore_lb_single = Leaderboard.new('lb_single_skate_0')
     highscore_lb_single.delete_leaderboard
 
-    highscore_lb_single = Leaderboard.new('lb_single_1')
+    highscore_lb_single = Leaderboard.new('lb_single_skate_1')
     highscore_lb_single.delete_leaderboard
 
-    highscore_lb_single = Leaderboard.new('lb_single_2')
+    highscore_lb_single = Leaderboard.new('lb_single_skate_2')
     highscore_lb_single.delete_leaderboard
 
-    highscore_lb_challenge = Leaderboard.new('lb_challenge')
+    highscore_lb_challenge = Leaderboard.new('lb_challenge_skate')
     highscore_lb_challenge.delete_leaderboard
 
     options = {}
     options[:reverse] = true
-    highscore_lb_online = Leaderboard.new('lb_online_0', options)
+    highscore_lb_online = Leaderboard.new('lb_online_skate_0', options)
     highscore_lb_online.delete_leaderboard
 
-    highscore_lb_online = Leaderboard.new('lb_online_1', options)
+    highscore_lb_online = Leaderboard.new('lb_online_skate_1', options)
     highscore_lb_online.delete_leaderboard
 
-    highscore_lb_online = Leaderboard.new('lb_online_2', options)
+    highscore_lb_online = Leaderboard.new('lb_online_skate_2', options)
     highscore_lb_online.delete_leaderboard
 
   end
@@ -170,7 +170,7 @@ class Leaderboards
       member_data << user.score_single
     end
     #bulk rank datas
-    highscore_lb_single = Leaderboard.new('lb_single')
+    highscore_lb_single = Leaderboard.new('lb_single_skate')
     highscore_lb_single.rank_members(member_data)
 
     options = {}
@@ -183,7 +183,7 @@ class Leaderboards
       member_data << user.device_id
       member_data << user.score_0_online
     end
-    highscore_lb_online = Leaderboard.new('lb_online_0', options)
+    highscore_lb_online = Leaderboard.new('lb_online_skate_0', options)
     highscore_lb_online.rank_members(member_data)
 
     member_data = []
@@ -194,7 +194,7 @@ class Leaderboards
       member_data << user.device_id
       member_data << user.score_1_online
     end
-    highscore_lb_online = Leaderboard.new('lb_online_1', options)
+    highscore_lb_online = Leaderboard.new('lb_online_skate_1', options)
     highscore_lb_online.rank_members(member_data)
 
     member_data = []
@@ -205,7 +205,7 @@ class Leaderboards
       member_data << user.device_id
       member_data << user.score_2_online
     end
-    highscore_lb_online = Leaderboard.new('lb_online_2', options)
+    highscore_lb_online = Leaderboard.new('lb_online_skate_2', options)
     highscore_lb_online.rank_members(member_data)
 
     member_data = []
@@ -216,7 +216,7 @@ class Leaderboards
       member_data << user.device_id
       member_data << user.win_challenge
     end
-    highscore_lb_challenge = Leaderboard.new('lb_challenge')
+    highscore_lb_challenge = Leaderboard.new('lb_challenge_skate')
     highscore_lb_challenge.rank_members(member_data)
 
     member_data = []
@@ -227,7 +227,7 @@ class Leaderboards
       member_data << user.device_id
       member_data << user.score_single_0
     end
-    highscore_lb_online = Leaderboard.new('lb_single_0')
+    highscore_lb_online = Leaderboard.new('lb_single_skate_0')
     highscore_lb_online.rank_members(member_data)
 
     member_data = []
@@ -238,7 +238,7 @@ class Leaderboards
       member_data << user.device_id
       member_data << user.score_single_1
     end
-    highscore_lb_online = Leaderboard.new('lb_single_1')
+    highscore_lb_online = Leaderboard.new('lb_single_skate_1')
     highscore_lb_online.rank_members(member_data)
 
     member_data = []
@@ -249,7 +249,7 @@ class Leaderboards
       member_data << user.device_id
       member_data << user.score_single_2
     end
-    highscore_lb_online = Leaderboard.new('lb_single_2')
+    highscore_lb_online = Leaderboard.new('lb_single_skate_2')
     highscore_lb_online.rank_members(member_data)
   end
 end
