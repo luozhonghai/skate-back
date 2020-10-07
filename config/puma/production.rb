@@ -13,7 +13,7 @@ workers 2
 #port        ENV.fetch("PORT") { 3000 }
 
 environment 'production'
-app_name = "ski-back"
+app_name = "skate-back"
 application_path = "/var/www/#{app_name}"
 directory "#{application_path}/current"
 

@@ -11,10 +11,10 @@ require 'mina/rbenv'
 #   repository   - Git repo to clone from. (needed by mina/git)
 #   branch       - Branch name to deploy. (needed by mina/git)
 
-set :application_name, 'ski-back'
+set :application_name, 'skate-back'
 set :domain, '39.106.33.76'
-set :deploy_to, '/var/www/ski-back'
-set :repository, 'git@github.com:luozhonghai/ski-back.git'
+set :deploy_to, '/var/www/skate-back'
+set :repository, 'git@github.com:luozhonghai/skate-back.git'
 set :branch, 'develop'
 set :user, 'root'
 # Optional settings:
